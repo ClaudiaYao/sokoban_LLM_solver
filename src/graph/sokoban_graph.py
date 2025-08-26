@@ -1,6 +1,8 @@
 from langgraph.graph import StateGraph, END, START
 from src.graph.nodes import executor, llm_caller, result_displayer, validator, state
+from functools import lru_cache
 
+@lru_cache(maxsize=1)
 def build_sokoban_graph():
     g = StateGraph(state.SokobanState)
 
@@ -23,4 +25,5 @@ def build_sokoban_graph():
         )
     
     g.add_edge("render", END)
-    return g.compile()
+    return g 
+
