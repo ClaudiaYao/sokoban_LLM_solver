@@ -13,7 +13,7 @@ This project uses LLM to generate solution for sokoban puzzle game. It also use 
 
 Waiting for the LLM generate solution for the chosen sokoban puzzle. <br>
 You could take a look at the running records at `/result/running_record.csv` <br>
-Each running step could be found in the file `/result/result_map*<data_file_name>.txt`. <br><br>
+Each running step could be found in the file `/result/result_map_<data_file_name>.txt`. <br><br>
 One example is: <br>
 <img src="result/running_result.png" width = 250>
 <br><br>
