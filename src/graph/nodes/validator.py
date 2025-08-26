@@ -1,4 +1,4 @@
-# src/graph/nodes/executor_tool.py
+
 from src.graph.nodes.state import SokobanState
 
 def validate_state(state: SokobanState) -> SokobanState:

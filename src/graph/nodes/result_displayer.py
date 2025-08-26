@@ -2,6 +2,7 @@ from src.graph.nodes.state import SokobanState
 import os
 import pandas as pd 
 from pathlib import Path
+from render import generate_gif 
 
 record_path = "result/running_record.csv"
 temp_folder = Path.cwd() / "result"
@@ -9,7 +10,7 @@ if not os.path.exists(temp_folder):
     os.makedirs(temp_folder)
 
     
-def render(state: SokobanState) -> SokobanState:
+def generate_result(state: SokobanState) -> SokobanState:
     """
     Record the running information to save to dataframe.
     Record the running steps to show dynamic map change.
@@ -46,5 +47,8 @@ def render(state: SokobanState) -> SokobanState:
             f.write("\n")
             f.write("\n")
     print("Save the dynamic steps in result.txt.")
+    
+    # save the dynamic map as gif
+    generate_gif.create_gif(state['visited_map_state'], filename=temp_folder / f"result_map_{file_name[:-4]}.gif", success=(state['status']=="success"))
             
     return state

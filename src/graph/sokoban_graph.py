@@ -10,7 +10,7 @@ def build_sokoban_graph():
     g.add_node("executor", executor.execute_moves)
     g.add_node("validator", validator.validate_state)
     g.add_node("router", lambda state: state)
-    g.add_node("render", result_displayer.render)
+    g.add_node("generate_result", result_displayer.generate_result)
 
     g.add_edge(START, "moves")
     g.add_edge("moves", "executor")
@@ -18,12 +18,12 @@ def build_sokoban_graph():
 
     g.add_conditional_edges("router", validator.validate_state,
         {
-            "success": "render",
+            "success": "generate_result",
             "go_moves": "moves",
-            "end": "render"
+            "end": "generate_result",
         }
         )
     
-    g.add_edge("render", END)
+    g.add_edge("generate_result", END)
     return g 
 

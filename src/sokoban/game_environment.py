@@ -138,15 +138,17 @@ class SokobanGame:
                 if starting_map[i][j] == "#":
                     map[i][j] = "#"
                 # updated player and stars position
-                elif (i, j) == self.gameStateObj['player']:
-                    map[i][j] = "@"
-                elif (i, j) in self.gameStateObj['boxes']:
-                    if (i, j) in goal_pos:
+                elif starting_map[i][j] == ".":
+                    if (i, j) == self.gameStateObj['player']:
+                        map[i][j] = "+"
+                    elif (i, j) in self.gameStateObj['boxes']:
                         map[i][j] = "*"
                     else:
+                        map[i][j] = "."
+                elif (i, j) == self.gameStateObj['player']:
+                        map[i][j] = "@" 
+                elif (i, j) in self.gameStateObj['boxes']:
                         map[i][j] = "$"
-                elif starting_map[i][j] == ".":
-                    map[i][j] = "."
                 else:
                 # other places are just floor
                     map[i][j] = " "

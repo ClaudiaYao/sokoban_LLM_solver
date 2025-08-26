@@ -20,6 +20,10 @@ One example is: <br>
 You could also check the LLM query input/output logging in Opik: <br><br>
 <img src="result/opik_logging.png" width = 800>
 
-TODO:
+<br><br>
+Check the generated GIF under the folder `/result`.<br><br>
+<img src="result/result_map_4_1.gif" width = 250>
+
+## TODO:
 
 . Use Javascript Game Engine Phaser to render the game UI.

@@ -8,9 +8,10 @@ def main():
     print("Hello from sokoban-llm-agent!")
     parent_dir =  Path.cwd()
     
-    data_file = parent_dir / "dataset/human_demos/3_17.txt" 
+    data_file = parent_dir / "dataset/human_demos/4_1.txt" 
     model_name = "openai/gpt-oss-20b"
-    # model_name = "Qwen/Qwen3-235B-A22B-Thinking-2507"
+    # model_name = "google/gemini-2.5-flash"
+    # model_name = "deepseek-ai/DeepSeek-R1-0528-Turbo"
 
     initial_map = game_environment.SokobanGame(data_file)
     
@@ -18,7 +19,7 @@ def main():
     print(str(initial_map.serialize_map()))
     
     agent_state = state_initiator.initiate_state(initial_map, model_name)
-    graph = sokoban_graph.build_sokoban_graph() # Compiled without a checkpointer. Used for LangGraph Studio
+    graph = sokoban_graph.build_sokoban_graph()
     app = graph.compile()
     opik_tracer = OpikTracer(graph=app.get_graph(xray=True))
     
